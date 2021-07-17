@@ -1,5 +1,4 @@
- 
-from flask import Flask
+from flask import Flask, render_template, make_response, jsonify, request, url_for
 
 app = Flask(__name__)
 
@@ -8,8 +7,8 @@ HOST = '10.0.40.10'
 
 @app.route('/')
 def home():
-	return 'Home Page 200 OK'
+	return render_template('home.html', title = 'Home Page')
 
 if __name__ == '__main__':
 	print('Server running in port %s'%(PORT))
-	app.run(host = HOST, port = PORT)
+	app.run(debug = True, host = HOST, port = PORT)
